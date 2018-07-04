@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "animated": "^0.2.2",
+    "classnames": "^2.2.6",
     "lodash": "^4.17.10",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",

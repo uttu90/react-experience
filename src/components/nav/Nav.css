@@ -1,0 +1,28 @@
+.nav {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  height: 4em;
+  padding: 0 10%;
+  width: 100%;
+}
+
+.nav a {
+  padding: 0 0.5em;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+.nav a:visited {
+  color: white;
+}
+
+.nav--vertical {
+  flex-direction: column;
+}
+
+.nav--primary {
+  background-color: #A1CAF1;
+  color: white;
+}
