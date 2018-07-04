@@ -14,6 +14,8 @@ class ScrollSpy extends Component {
   }
 
   componentDidMount() {
+    // Setting the viewPort: 100% in widht and the middle 50% in height
+    // Calling observer handler when the intersection is 50% - 100%
     this.io = new IntersectionObserver(this.observing, {
       rootMargin: '-25% 0px -25% 0px',
       threshold: [0.5, 1]
