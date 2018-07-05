@@ -1,3 +1,3 @@
-import PreloadGalery from './Galery';
+import preload from './preloadImage';
 
-export default PreloadGalery;
+export default preload;
