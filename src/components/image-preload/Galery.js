@@ -15,7 +15,7 @@ function generateImages() {
 function Image(props) {
   return (
     <div className='image-container'>
-      <img  className='image-content' src={props.src} />
+      <img  className='image-content' src={props.src} alt='pre-load' />
     </div>
   )
 }
