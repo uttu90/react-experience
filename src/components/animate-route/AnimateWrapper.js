@@ -11,10 +11,13 @@ function getStyle({ opacity, y }) {
 class Wrapper extends Component {
   render() {
     const { opacity, children } = this.props;
-    return opacity && (
+    return (opacity > 0) && (
       <div style={getStyle(this.props)}>
         {
-          React.Children.map(children, child => React.cloneElement(child, this.props))
+          React.Children.map(children, child => React.cloneElement(child, {
+            ...this.props,
+            finishedAnimating: opacity === 1
+          }))
         }
       </div>
     )
@@ -36,7 +39,6 @@ class AnimatedWrapper extends Component {
   }
 
   render() {
-    // console.log(this.props.status, this.props.text);
     const { animating } = this.state;
     const y = animating.interpolate({
       inputRange: [0, 1],
@@ -62,10 +64,6 @@ class AnimatedWrapper extends Component {
       toValue: 0,
       duration
     }).start();
-  }
-
-  componentDidMount() {
-    console.log('mounted')
   }
 
   componentDidUpdate(prevProps, prevState) {

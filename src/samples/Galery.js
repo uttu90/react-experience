@@ -13,12 +13,15 @@ function Image(props) {
 
 function Galery(props) {
   return (
-    <div className='galery'>
-      {
-        props.imageArray.map((imageUrl, index) => (
-          <Image key={index} src={imageUrl} height={250} width={250}/>
-        ))
-      }
+    <div>
+      <h1>Preload galery</h1>
+      <div className='galery'>
+        {
+          props.imageArray.map((imageUrl, index) => (
+            <Image key={index} src={imageUrl} height={250} width={250}/>
+          ))
+        }
+      </div>
     </div>
   )
 }

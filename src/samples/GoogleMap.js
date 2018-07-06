@@ -17,8 +17,12 @@ class GoogleMap extends Component {
     this.initMap = this.initMap.bind(this);
   }
 
-  componentDidMount() {
-    this.startLoading();
+  componentDidUpdate(prevProps, prevState) {
+    const { finishedAnimating: waiting } = prevProps;
+    const { finishedAnimating } = this.props;
+    if (finishedAnimating && !waiting ) {
+      this.startLoading();
+    }
   }
   
   startLoading() {
@@ -48,11 +52,9 @@ class GoogleMap extends Component {
   }
 
   render() {
-    const { loading } = this.state;
     return (
       <div>
-        <button onClick={this.startLoading}>load map</button>
-        <label>{loading ? "loadding" : "loaded"}</label>
+        <h1>Google map: Load external javascript</h1>
         <div id="map" style={{ height: 480, width: 640 }}>
         </div>
       </div>

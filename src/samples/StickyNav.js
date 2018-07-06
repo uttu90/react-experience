@@ -25,6 +25,7 @@ class StickyNav extends Component {
     const { activeItem } = this.state;
     return (
       <div>
+        <h1>Scroll spy</h1>
         <div className="scroll-nav sticky">
           {
             NAV_IDS.map(index => {

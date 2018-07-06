@@ -27,7 +27,7 @@ export default function transitionRoute(Component) {
               timeout={timeout}
               onEnter={onEnter}
               onEntering={onEntering}
-              onEntered={() => console.log(this.props.text, 'entered')}
+              onEntered={onEntered}
               onExit={onExit}
               onExiting={onExiting}
               onExited={onExited}

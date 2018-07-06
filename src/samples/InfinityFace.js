@@ -3,6 +3,8 @@ import InfiniteScrollContainer from '../components/infinite-scroll';
 import ReadyImage from './ReadyImage';
 import { getImageUrl } from './utils';
 
+const TIMER_INTERVAL = 500;
+
 //NOTE: The anchor must be forwardRef to the InfiniteScrollContainer.
 //TODO: create HOC makeRef to make producing LoadingAnchor easier.
 const LoadingAnchor = React.forwardRef((props, ref) => (
@@ -15,9 +17,11 @@ class InfiniteFace extends Component {
 
     this.state = {
       images: [],
-      imageIndex: 0
+      imageIndex: 0,
+      loadMore: false
     }
 
+    this.onObserve = this.onObserve.bind(this);
     this.addImage = this.addImage.bind(this);
   }
 
@@ -28,14 +32,28 @@ class InfiniteFace extends Component {
     }))
   }
 
+  onObserve(anchorCatching) {
+    if (anchorCatching && !this.timerId) {
+      this.timerId = setInterval(this.addImage, TIMER_INTERVAL);
+    }
+    if (!anchorCatching) {
+      clearInterval(this.timerId);
+      this.timerId = null;
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.timerId) clearInterval(this.timerId);
+  }
+
   render() {
     const { images } = this.state;
     return (
       <InfiniteScrollContainer
-        onObserve={this.addImage}
+        onObserve={this.onObserve}
         anchor={LoadingAnchor}
-        timeInterval={500}
       >
+        <h1>Infinite Scroll</h1>
         {
           images.map(image => (
             <ReadyImage
