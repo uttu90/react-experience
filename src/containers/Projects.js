@@ -4,6 +4,7 @@ import StickyNav from '../samples/StickyNav';
 import InfiniteFace from '../samples/InfinityFace';
 import Galery from '../samples/Galery';
 import LazyFace from '../samples/LazyFace';
+import AnimateRoute from '../samples/AnimatedRoute';
 
 class Projects extends Component {
   render() {
@@ -14,10 +15,12 @@ class Projects extends Component {
         <Link to={`${match.url}/infinite-scroll`}> infinite-scroll </Link>
         <Link to={`${match.url}/image-preload`}> image-preload </Link>
         <Link to={`${match.url}/lazy-load`}> lazy-load </Link>
+        <Link to={`${match.url}/animate-route`}> animate-route </Link>
         <Route path={`${match.url}/scroll-spy`} component={StickyNav} />
         <Route path={`${match.url}/infinite-scroll`} component={InfiniteFace} />
         <Route path={`${match.url}/image-preload`} component={Galery} />
         <Route path={`${match.url}/lazy-load`} component={LazyFace} />
+        <Route path={`${match.url}/animate-route`} component={AnimateRoute} />
       </div>
     );
   }
