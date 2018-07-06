@@ -64,10 +64,14 @@ class AnimatedWrapper extends Component {
     }).start();
   }
 
+  componentDidMount() {
+    console.log('mounted')
+  }
+
   componentDidUpdate(prevProps, prevState) {
     const { status, timeout: { enter, exit } } = this.props;
     if (status === 'entering') {
-      this.enterAnimating(exit, enter);
+      this.enterAnimating(exit, enter - exit);
     }
 
     if (status === 'exiting') {

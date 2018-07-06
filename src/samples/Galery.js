@@ -3,7 +3,6 @@ import preload from '../components/image-preload';
 import { generateImages } from './utils';
 import './Galery.css';
 
-
 function Image(props) {
   return (
     <div className='image-container'>

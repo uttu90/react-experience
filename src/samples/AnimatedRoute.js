@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import transitionRoute, { AnimateWrapper } from '../components/animate-route';
 import { Route1, Route2 } from './SampleRoutes';
+import Galery from './Galery';
+import GoogleMap from './GoogleMap';
 
 const FadeRoute = transitionRoute(AnimateWrapper);
 
@@ -24,7 +26,9 @@ class AnimatedRoute extends Component {
         <FadeRoute path={`${match.url}/animated-route-2`} text="Animated Route 2" timeout={{ enter: 1000, exit: 500 }} onEntered={() => { this.setState({ entered: true})}}>
           <Route2 entered={this.state.entered} />
         </FadeRoute>
-        <FadeRoute path={`${match.url}/animated-route-3`} text="Animated Route 3" timeout={{ enter: 1000, exit: 500 }} />
+        <FadeRoute path={`${match.url}/animated-route-3`} text="Animated Route 3" timeout={{ enter: 1000, exit: 500 }} >
+          <GoogleMap />
+        </FadeRoute>
       </div>
     );
   }
