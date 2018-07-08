@@ -5,11 +5,9 @@ import { getImageUrl } from './utils';
 
 const TIMER_INTERVAL = 500;
 
-//NOTE: The anchor must be forwardRef to the InfiniteScrollContainer.
-//TODO: create HOC makeRef to make producing LoadingAnchor easier.
-const LoadingAnchor = React.forwardRef((props, ref) => (
-  <div ref={ref} style={{ height: 200 }}>Loading...</div>
-))
+const LoadingAnchor = (props) => (
+  <div style={{ height: 200 }}>Loading...</div>
+)
 
 class InfiniteFace extends Component {
   constructor(props) {

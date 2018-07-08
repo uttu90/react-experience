@@ -24,13 +24,15 @@ class InfiniteScroll extends Component {
   }
   
   render() {
-    const { anchor: Anchor, children } = this.props;
+    const { anchor: Anchor, children, anchorContainerStyle } = this.props;
     return (
       <div>
         {
           children
         }
-        <Anchor ref={this.anchor} />
+        <div ref={this.anchor} style={anchorContainerStyle}>
+          <Anchor />
+        </div>
       </div>
     );
   }
