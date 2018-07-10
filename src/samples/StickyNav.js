@@ -24,7 +24,7 @@ class StickyNav extends Component {
   render() {
     const { activeItem } = this.state;
     return (
-      <div>
+      <div style={this.props.style}>
         <h1>Scroll spy</h1>
         <div className="scroll-nav sticky">
           {

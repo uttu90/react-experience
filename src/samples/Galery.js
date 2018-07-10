@@ -13,7 +13,7 @@ function Image(props) {
 
 function Galery(props) {
   return (
-    <div>
+    <div style={props.style}>
       <h1>Preload galery</h1>
       <div className='galery'>
         {

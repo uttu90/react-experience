@@ -47,6 +47,7 @@ class InfiniteFace extends Component {
   render() {
     const { images } = this.state;
     return (
+      <div style={this.props.style}>
       <InfiniteScrollContainer
         onObserve={this.onObserve}
         anchor={LoadingAnchor}
@@ -62,6 +63,7 @@ class InfiniteFace extends Component {
           ))
         }
       </InfiniteScrollContainer>
+      </div>
     )
   }
 }

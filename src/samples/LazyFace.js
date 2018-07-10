@@ -24,7 +24,7 @@ const LazyImage = makeLazy(SimpleImage);
 class LazyLoad extends Component {
   render() {
     return (
-      <div>
+      <div style={this.props.style}>
         <h1>Lazy loading</h1>
         <LazyLoadContainer>
           {

@@ -1,6 +1,3 @@
-import transitionRoute from './transitionRoute';
-import AnimateWrapper from './AnimateWrapper';
+import animateRoute from './animateRoute';
 
-export { AnimateWrapper }
-
-export default transitionRoute;
+export default animateRoute;

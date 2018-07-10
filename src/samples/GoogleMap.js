@@ -53,7 +53,7 @@ class GoogleMap extends Component {
 
   render() {
     return (
-      <div>
+      <div style={this.props.style}>
         <h1>Google map: Load external javascript</h1>
         <div id="map" style={{ height: 480, width: 640 }}>
         </div>
