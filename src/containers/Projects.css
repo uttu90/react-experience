@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.container a {
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.container a:hover {
+  background-color: lightseagreen;
+}

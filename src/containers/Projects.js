@@ -7,8 +7,14 @@ import InfinityFace from '../samples/InfinityFace';
 import Galery from '../samples/Galery';
 import LazyFace from '../samples/LazyFace';
 import GoogleMap from '../samples/GoogleMap';
+import { 
+  enterTimingSample, 
+  exitTimingSample, 
+  interpolateStyleSample
+} from '../components/animate-route/animateRoute';
 
-import { enterTimingSample, exitTimingSample, interpolateStyleSample} from '../components/animate-route/animateRoute';
+import './Projects.css';
+
 
 const enhance = animateRoute(enterTimingSample, exitTimingSample, interpolateStyleSample);
 const AnimatedStickyNav = enhance(StickyNav);
@@ -17,7 +23,7 @@ const AnimatedGalery = enhance(Galery);
 const AnimatedLazyFace = enhance(LazyFace);
 const AnimatedGoogleMap = enhance(GoogleMap);
 
-const routeTimeout = {
+const ROUTE_TIMEOUT = {
   enter: 1000,
   exit: 500
 }
@@ -27,33 +33,35 @@ class Projects extends Component {
     const { match, location } = this.props;
     return (
       <div>
-        <Link to={`${match.url}/scroll-spy`}> scroll-spy </Link>
-        <Link to={`${match.url}/infinite-scroll`}> infinite-scroll </Link>
-        <Link to={`${match.url}/image-preload`}> image-preload </Link>
-        <Link to={`${match.url}/lazy-load`}> lazy-load </Link>
-        <Link to={`${match.url}/load-external-js`}> load-external-js </Link>
+        <div className="container">
+          <Link to={`${match.url}/scroll-spy`}> scroll-spy </Link>
+          <Link to={`${match.url}/infinite-scroll`}> infinite-scroll </Link>
+          <Link to={`${match.url}/image-preload`}> image-preload </Link>
+          <Link to={`${match.url}/lazy-load`}> lazy-load </Link>
+          <Link to={`${match.url}/load-external-js`}> load-external-js </Link>
+        </div>
         <TransitionGroup>
           <Transition
             key={location.key}
-            timeout={routeTimeout}
+            timeout={ROUTE_TIMEOUT}
           >
             {
               status => (
                 <Switch location={location}>
                   <Route path={`${match.url}/scroll-spy`}>
-                    <AnimatedStickyNav status={status} />
+                    <AnimatedStickyNav status={status} timeout={ROUTE_TIMEOUT}/>
                   </Route>
                   <Route path={`${match.url}/infinite-scroll`}>
-                    <AnimatedInfinityFace status={status} />
+                    <AnimatedInfinityFace status={status} timeout={ROUTE_TIMEOUT} />
                   </Route>
                   <Route path={`${match.url}/image-preload`}>
-                    <AnimatedGalery status={status} />
+                    <AnimatedGalery status={status} timeout={ROUTE_TIMEOUT}/>
                   </Route>
                   <Route path={`${match.url}/lazy-load`}>
-                    <AnimatedLazyFace status={status} />
+                    <AnimatedLazyFace status={status} timeout={ROUTE_TIMEOUT}/>
                   </Route>
                   <Route path={`${match.url}/load-external-js`}>
-                    <AnimatedGoogleMap status={status} />
+                    <AnimatedGoogleMap status={status} timeout={ROUTE_TIMEOUT}/>
                   </Route>
                 </Switch>
               )
